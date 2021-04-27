@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Various String Operations</title>
+</head>
+<body>
+    <p>Various String Operations!!!</p>
+    <label for="inp1">String-1</label>
+    <input id="inp1" class="myClass1" type="text" maxlength="50" required minlength="1"> <!--0-->
+    <br>
+    <label for="inp2">String-2</label>
+    <input id="inp2" class="myClass1" type="text" maxlength="50" required minlength="1"> <!--1-->
+    <br>
+    <label for="inp3">Concat&nbsp;&nbsp;</label>
+    <input id="inp3" class="myClass1" type="text" maxlength="50" required minlength="1"> <!--2-->
+    <br>
+    <button onclick="execMyFunc()">Execute Operations</button>
+    <br>
+    <div>
+        <p id="len"></p>
+        <p id="ss"></p>
+        <p id="rep"></p>
+        <p id="upp"></p>
+        <p id="low"></p>
+    </div>
+    <script>
+        const execMyFunc=()=>{
+            let tmp = "junk value";
+            const base = document.getElementsByClassName('myClass1');
+            tmp = base[0].value;
+            const disp = document.getElementById('len');
+            disp.innerHTML = "Length of String <b>"+base[0].value.length+"</b>";
+            const ss = document.getElementById('ss');
+            ss.innerHTML = "Substring Found at Index: <b>"+base[0].value.indexOf(base[1].value);+"</b>";
+            const rep = document.getElementById("rep");
+            // tmp.replace(body[1].value,body[2].value);
+            rep.innerHTML = "Concatinated String: <b>"+base[0].value+base[2].value+"</b>";
+            const upp = document.getElementById("upp");
+            const low = document.getElementById("low");
+            upp.innerHTML = "UpperCase of String1 is: <b>"+base[0].value.toUpperCase()+"</b>"
+            low.innerHTML = "Lowercase of String1 is: <b>"+base[0].value.toLowerCase()+"</b>";
+        }
+    </script>
+</body>
+</html>
