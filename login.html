@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .fbox{
+            border: 2px solid black;
+            padding: 30px;
+            /* margin-right: 1650px; */
+            /* margin-right: 70%; */
+        }
+    </style>
+</head>
+<body>
+    <div class="fbox">
+        <input id="uname" type="text" placeholder="username" required>
+        <br>
+        <input id="pass" type="password" placeholder="password" required>
+        <br>
+        <button id="sub">Submit</button>
+    </div>
+    <script>
+        let data = new Set();
+        document.getElementById('sub').onclick = () => {
+            // console.log('inside function');
+            let user = document.getElementById('uname');
+            let pass = document.getElementById('pass');
+            let ob = {
+                'username': user.value,
+                'password': pass.value
+            };
+            data.add(ob);
+            console.log(data);
+        };
+    </script>
+</body>
+</html>
