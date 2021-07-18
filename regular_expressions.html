@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tutorial</title>
+    <style>
+        *{
+            background-color: aqua;
+        }
+    </style>
+    
+    <script>
+
+   function func1(){
+       var arr=['goal','new','user','sit','eat','dinner'];
+       var c= 'e'
+       var pattern=new RegExp(c);
+    const filteredarr=arr.filter(item=>!pattern.test(item))
+     document.getElementById("p1").innerHTML="Given array : "+arr+"<br>"+"Filtered array : "+filteredarr;
+   }
+   function func2(){
+    var arr=['goal','new','user','sit','eat','dinner'];
+       var pattern1=new RegExp(/^([a-z])e([a-z])n([a-z]*)$/);
+       var pattern2=new RegExp(/^([a-z])n([a-z])e([a-z]*)$/);
+       var final=new RegExp(pattern1.source+ "|" + pattern2.source);
+    const filteredarr=arr.filter(item=>final.test(item))
+     document.getElementById("p2").innerHTML="Given array : "+arr+"<br>"+"Filtered array : "+filteredarr;
+   }
+   function func3(){
+       var arr=['lovely','\ndentist','2 lonely','eden','fly\n','dent'];
+       var pattern1=new RegExp(/^den\w*$/);
+       var pattern2=new RegExp(/^\w*ly$/);
+       var final=new RegExp(pattern1.source+ "|" + pattern2.source);
+    const filteredarr=arr.filter(item=>final.test(item))
+     document.getElementById("p3").innerHTML="Given array : "+arr+"<br>"+"Filtered array : "+filteredarr;
+   }
+   function func4(){
+    var pattern=/^hand/g; 
+    var check=/^hand\w+$/;                                                                                       ;
+    pattern.compile(pattern);
+       var arr2=['handed','hand','handy','unhanded','handle','hand-2'];
+    const newarr2=arr2.map(item=>{
+        if(check.test(item))
+        return item.replace(pattern,"X")
+        else return item})
+       document.getElementById("p4").innerHTML="Given array : "+arr2+"<br>"+"After replacing: "+newarr2;
+    }
+   function func5(){
+       var str= "refused reed redo received";
+       var p=/removed|reed|refused|received/gi;
+       p.compile(p);
+      var newstr=str.replace(p,"X");
+       document.getElementById("p5").innerHTML="Given string : "+str+"<br>"+"After replacing: "+newstr;
+
+   }
+   function func6(){
+    var str= "th\\er\\e ar\\e common asp\\ects among th\\e alt\\ernations";
+       var p=/\\e/gi;
+       p.compile(p);
+      var newstr=str.replace(p,"e");
+       document.getElementById("p6").innerHTML="Given string : "+str+"<br>"+"After replacing: "+newstr; 
+   }
+    </script>
+</head>
+<body>
+
+    <div style="background-color: rgb(255, 255, 255) ; text-align: center;"  >
+    <div class="class1">
+        <h2 class="head"> For the given array, filter all elements that do not contain 'e' </h2>
+        <p id="p1"></p>
+        <button class="btn" onclick="func1();">GO!</button>
+    </div>
+    <div class="class2">
+        <h2 class="head"> For the given array, filter all elements that contains both 'e' and 'n'</h2>
+        <p id="p2"></p>
+        <button class="btn" onclick="func2();">GO!</button>
+    </div>
+    <div class="class3">
+        <h2 class="head"> For the given input array, filter all elements that start with 'den' or end with 'ly'</h2>
+        <p id="p3"></p>
+        <button class="btn" onclick="func3();">GO!</button>
+    </div>
+    <div class="class4">
+        <h2 class="head">For the given input array, replace 'hand' with 'X' for all words that start with 'hand' followed by at least one word character</h2>
+        <p id="p4"></p>
+        <button class="btn" onclick="func4();">GO!</button>
+    </div>
+    <div class="class5">
+        <h2 class="head">For the given input strings, replace all occurrences of 'removed' or 'reed' or 'received' or 'refused' with 'X'</h2>
+        <p id="p5"></p>
+        <button class="btn" onclick="func5();">GO!</button>
+    </div>
+    <div class="class6">
+        <h2 class="head">Replace all occurrences of '\e' with 'e' </h2>
+        <p id="p6"></p>
+        <button class="btn" onclick="func6();">GO!</button>
+    </div>
+    </div>
+</body>
+</html>
